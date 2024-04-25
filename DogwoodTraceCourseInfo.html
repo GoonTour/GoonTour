@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goon Tour 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100vh - 40px); /* Adjust the height based on the viewport height minus toolbar height */
+            border: none;
+            display: block;
+        }
+        .toolbar {
+            background-color: #009CDE; /* NCAA blue background */
+            color: #fff;
+            padding: 10px 0; /* Updated padding */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center the toolbar */
+        }
+        .toolbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px; /* Add margin to create space between links */
+            font-weight: bold;
+            position: relative;
+            display: inline-block; /* Display links inline */
+        }
+        .toolbar .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .toolbar .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        .toolbar .dropdown-content a {
+            color: #009CDE; /* Updated color */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .toolbar .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .toolbar .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Show dropdown arrows */
+        .dropdown-arrow {
+            display: inline-block;
+        }
+        h1 {
+            margin: 0;
+            padding: 20px 0;
+            text-align: center;
+            background-color: #009CDE;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Goon Tour 2024</h1>
+    <div class="toolbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown" id="dropdownLakeChesdin" onmouseover="toggleDropdown('dropdownContentLakeChesdin', true)" onmouseout="toggleDropdown('dropdownContentLakeChesdin', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownLakeChesdin')">Lake Chesdin <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentLakeChesdin">
+                <a href="LakeChesdinScores.html">Scores</a>
+                <a href="LakeChesdinCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdownMagGreen" onmouseover="toggleDropdown('dropdownContentMagGreen', true)" onmouseout="toggleDropdown('dropdownContentMagGreen', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownMagGreen')">Mag Green <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentMagGreen">
+                <a href="MagGreenScores.html">Scores</a>
+                <a href="MagGreenCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdownRNK" onmouseover="toggleDropdown('dropdownContentRNK', true)" onmouseout="toggleDropdown('dropdownContentRNK', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownRNK')">RNK <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentRNK">
+                <a href="RNKScores.html">Scores</a>
+                <a href="RNKCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdownPendleton" onmouseover="toggleDropdown('dropdownContentPendleton', true)" onmouseout="toggleDropdown('dropdownContentPendleton', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownPendleton')">Pendleton <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentPendleton">
+                <a href="PendletonScores.html">Scores</a>
+                <a href="PendletonCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdownDogwoodTrace" onmouseover="toggleDropdown('dropdownContentDogwoodTrace', true)" onmouseout="toggleDropdown('dropdownContentDogwoodTrace', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownDogwoodTrace')">Dogwood Trace <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentDogwoodTrace">
+                <a href="DogwoodTraceScores.html">Scores</a>
+                <a href="DogwoodTraceCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdownIndependence" onmouseover="toggleDropdown('dropdownContentIndependence', true)" onmouseout="toggleDropdown('dropdownContentIndependence', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownIndependence')">Independence <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentIndependence">
+                <a href="IndependenceScores.html">Scores</a>
+                <a href="IndependenceCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdownMattaponi" onmouseover="toggleDropdown('dropdownContentMattaponi', true)" onmouseout="toggleDropdown('dropdownContentMattaponi', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownMattaponi')">Mattaponi <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentMattaponi">
+                <a href="MattaponiScores.html">Scores</a>
+                <a href="MattaponiCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdownViniterra" onmouseover="toggleDropdown('dropdownContentViniterra', true)" onmouseout="toggleDropdown('dropdownContentViniterra', false)">
+            <a href="#" onclick="handleDropdownClick(event, 'dropdownViniterra')">Viniterra <span class="dropdown-arrow">▼</span></a>
+            <div class="dropdown-content" id="dropdownContentViniterra">
+                <a href="ViniterraScores.html">Scores</a>
+                <a href="ViniterraCourseInfo.html">Course Info</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" onclick="collapseDropdownsOnMobile(event)">
+        <iframe id="embeddedSheet" src="https://www.dogwoodtracegolf.com/course-details/scorecard/"></iframe>
+    </div>
+    <script>
+        // Adjust the height of the iframe based on the viewport height minus toolbar height
+        function adjustIframeHeight() {
+            var toolbarHeight = document.querySelector('.toolbar').offsetHeight;
+            var iframe = document.querySelector('iframe');
+            if (iframe) {
+                var windowHeight = window.innerHeight;
+                iframe.style.height = (windowHeight - toolbarHeight) + 'px';
+            }
+        }
+
+        // Hide sheet tabs
+        function hideSheetTabs() {
+            var iframe = document.getElementById('embeddedSheet');
+            var sheetTabsContainer = iframe.contentDocument.querySelector('.docs-sheet-tab-area');
+            if (sheetTabsContainer) {
+                sheetTabsContainer.style.display = 'none';
+            }
+        }
+
+        // Toggle dropdown visibility
+        function toggleDropdown(dropdownId, show) {
+            var dropdownContent = document.getElementById(dropdownId);
+            dropdownContent.style.display = show ? 'block' : 'none';
+        }
+
+        // Collapse dropdowns when tapping outside on mobile devices or clicking inside the embedded sheet
+        function collapseDropdownsOnMobile(event) {
+            if (window.innerWidth <= 768 && !event.target.closest('.dropdown')) {
+                var dropdownContents = document.querySelectorAll('.dropdown-content');
+                dropdownContents.forEach(function(content) {
+                    content.style.display = 'none';
+                });
+            }
+            if (window.innerWidth <= 768 && event.target.closest('#embeddedSheet')) {
+                var dropdownContents = document.querySelectorAll('.dropdown-content');
+                dropdownContents.forEach(function(content) {
+                    content.style.display = 'none';
+                });
+            }
+        }
+
+        // Handle dropdown click events
+        function handleDropdownClick(event, dropdownId) {
+            var dropdownContent = document.getElementById(dropdownId).querySelector('.dropdown-content');
+            toggleDropdown(dropdownContent.id, dropdownContent.style.display === 'none');
+            event.stopPropagation();
+        }
+
+        // Add event listeners
+        window.addEventListener('resize', adjustIframeHeight);
+        document.getElementById('embeddedSheet').addEventListener('load', function() {
+            hideSheetTabs();
+            adjustIframeHeight();
+        });
+    </script>
+</body>
+</html>
