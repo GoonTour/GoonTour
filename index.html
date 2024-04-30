@@ -73,6 +73,14 @@
             background-color: #009CDE;
             color: #fff;
         }
+
+        /* Adjust layout for smaller screens */
+        @media screen and (max-width: 768px) {
+            .toolbar a {
+                display: block; /* Display links as blocks for better stacking */
+                margin: 5px auto; /* Center-align links with some vertical spacing */
+            }
+        }
     </style>
 </head>
 <body>
